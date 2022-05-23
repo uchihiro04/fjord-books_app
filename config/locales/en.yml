@@ -7,6 +7,13 @@ en:
         restrict_dependent_destroy:
           has_one: Cannot delete record because a dependent %{record} exists
           has_many: Cannot delete record because dependent %{record} exist
+  button:
+    back: Back
+    destroy: Destroy
+    edit: Edit
+    index: Index
+    new_book: New Book
+    show: Show
   date:
     abbr_day_names:
     - Sun
@@ -144,6 +151,10 @@ en:
       header:
         one: 1 error prohibited this %{model} from being saved
         other: "%{count} errors prohibited this %{model} from being saved"
+  heading:
+    books: Books
+    editing_book: Editing Book
+    new_book: New Book
   helpers:
     select:
       prompt: Please select
@@ -151,6 +162,11 @@ en:
       create: Create %{model}
       submit: Save %{model}
       update: Update %{model}
+  message:
+    are_you_sure: Are you sure?
+    book_was_successfully_created: Book was successfully created
+    book_was_successfully_updated: Book was successfully updated.
+    book_was_successfully_destroyed: Book was successfully destroyed.
   number:
     currency:
       format:
@@ -213,10 +229,3 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
-  button:
-    edit: Edit
-    back: Back
-    show: Show
-    index: Index
-    destroy: Destroy
-    new_book: New Book
