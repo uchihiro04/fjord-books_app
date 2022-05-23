@@ -7,6 +7,20 @@ en:
         restrict_dependent_destroy:
           has_one: Cannot delete record because a dependent %{record} exists
           has_many: Cannot delete record because dependent %{record} exist
+  books:
+    create:
+      success: "%{title} was successfully created."
+    destroy:
+      success: "%{title} was successfully destroyed."
+    edit:
+      title: "Editing Book"
+    index:
+      title: "Books"
+      are_you_sure: "Are you sure?"
+    new:
+      title: "New Book"
+    update:
+      success: "%{title} was successfully updated."
   button:
     back: Back
     destroy: Destroy
@@ -151,10 +165,6 @@ en:
       header:
         one: 1 error prohibited this %{model} from being saved
         other: "%{count} errors prohibited this %{model} from being saved"
-  heading:
-    books: Books
-    editing_book: Editing Book
-    new_book: New Book
   helpers:
     select:
       prompt: Please select
@@ -162,11 +172,6 @@ en:
       create: Create %{model}
       submit: Save %{model}
       update: Update %{model}
-  message:
-    are_you_sure: Are you sure?
-    book_was_successfully_created: Book was successfully created
-    book_was_successfully_updated: Book was successfully updated.
-    book_was_successfully_destroyed: Book was successfully destroyed.
   number:
     currency:
       format:
