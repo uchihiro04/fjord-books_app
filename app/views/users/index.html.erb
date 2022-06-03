@@ -26,5 +26,6 @@
   </tbody>
 </table>
 
-<%= paginate @users %>
-<%= link_to t('views.user.edit'), edit_user_registration_path(@user) %>
+<%= paginate @users %><br>
+<%= link_to t('views.user.edit'), edit_user_registration_path(@user) %><br>
+<%= link_to t('views.user.sign_out'), destroy_user_session_path, method: :delete %>
