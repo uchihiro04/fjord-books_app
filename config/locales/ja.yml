@@ -223,6 +223,7 @@ ja:
       truncate: '...'
     user:
       edit: アカウント情報を編集する
+      sign_out: ログアウト
   controllers:
     common:
       notice_create: "%{name}が作成されました。"
