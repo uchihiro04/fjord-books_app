@@ -222,8 +222,11 @@ ja:
       next: '次'
       truncate: '...'
     user:
-      edit: アカウント情報を編集する
-      sign_out: ログアウト
+      edit: 'アカウント情報を編集する'
+      login: 'ログイン'
+      logged_in_as: 'ログイン中です'
+      sign_out: 'ログアウト'
+      sign_up: 'アカウント登録'
   controllers:
     common:
       notice_create: "%{name}が作成されました。"
