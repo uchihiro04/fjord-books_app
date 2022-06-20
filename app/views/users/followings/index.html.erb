@@ -1,0 +1,10 @@
+<h1><%= User.model_name.human %></h1>
+
+<% if @user.followings.empty? %>
+  <p>まだフォローしていません</p>
+<% else %>
+  <%= render 'users/users', users: @users %>
+<% end %>
+
+<%= paginate @users %>
+<%= link_to t('views.common.back'), user_path(@user) %>
