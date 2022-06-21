@@ -1,7 +1,7 @@
-<h1><%= User.model_name.human %></h1>
+<h1><%= t('views.follow.followings_list') %></h1>
 
 <% if @user.followings.empty? %>
-  <p>まだフォローしていません</p>
+  <p><%= t('views.follow.no_followings') %></p>
 <% else %>
   <%= render 'users/users', users: @users %>
 <% end %>

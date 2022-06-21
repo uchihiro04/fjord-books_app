@@ -218,6 +218,15 @@ ja:
       title_show: "%{name}の詳細"
       sign_out: ログアウト
       minimum_length: "%{length}文字以上"
+    follow:
+      follow: フォロー
+      followers: フォロワー
+      followers_list: フォロワー一覧
+      followings: フォロー
+      followings_list: フォロー一覧
+      no_followers: まだフォローされていません
+      no_followings: まだフォローしていません
+      unfollow: フォロー解除
     pagination:
       first: '最初'
       last: '最後'
