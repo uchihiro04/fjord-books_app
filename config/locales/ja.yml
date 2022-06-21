@@ -206,12 +206,14 @@ ja:
       short: "%m/%d %H:%M"
     pm: 午後
   views:
+    book:
+      book_index: '本の一覧へ'
     common:
       show: 詳細
       edit: 編集
       destroy: 削除
       new: 新規作成
-      back: 戻る
+      back: 戻る 
       delete_confirm: よろしいですか？
       title_new: "%{name}の新規作成"
       title_edit: "%{name}の編集"
@@ -221,6 +223,13 @@ ja:
       previous: '前'
       next: '次'
       truncate: '...'
+    user:
+      edit: 'アカウント情報を編集する'
+      login: 'ログイン'
+      logged_in_as: 'ログイン中です'
+      sign_out: 'ログアウト'
+      sign_up: 'アカウント登録'
+      user_index: 'ユーザー一覧へ'
   controllers:
     common:
       notice_create: "%{name}が作成されました。"

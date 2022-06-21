@@ -10,6 +10,16 @@
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <p>
+      <% if user_signed_in? %>
+        <%= t('views.user.logged_in_as')%>
+        <strong><%= current_user.email %></strong>.<br>
+        <%= link_to t('views.user.edit'), edit_user_registration_path %> |
+        <%= link_to t('views.user.sign_out'), destroy_user_session_path, method: :delete %>
+      <% end %>
+    </p>
     <%= yield %>
   </body>
 </html>
