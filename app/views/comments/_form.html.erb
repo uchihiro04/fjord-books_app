@@ -1,0 +1,34 @@
+<h2>コメント一覧</h2>
+<% commentable.comments.each do |comment| %>
+  <p>
+  <strong><%= User.human_attribute_name(:name) %>:</strong>
+  <%= comment.user.name %>
+  &nbsp;
+  <strong><%= Comment.human_attribute_name(:content) %>:</strong>
+  <%= comment.content %>
+  </p>
+<% end %>
+
+<%= form_with(model: [commentable, Comment.new]) do |form| %>
+  <% if commentable.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= t'errors.template.header', model: commentable.model_name.human, count: commentable.errors.count %></h2>
+
+      <ul>
+        <% commentable.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'コメント' %>
+  </div>
+<% end %>
+
