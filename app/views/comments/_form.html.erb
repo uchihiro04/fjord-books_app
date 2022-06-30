@@ -1,11 +1,18 @@
 <h2>コメント一覧</h2>
 <% commentable.comments.each do |comment| %>
   <p>
-  <strong><%= User.human_attribute_name(:name) %>:</strong>
-  <%= comment.user.name %>
-  &nbsp;
-  <strong><%= Comment.human_attribute_name(:content) %>:</strong>
-  <%= comment.content %>
+    <strong><%= User.human_attribute_name(:name) %>:</strong>
+    <% if comment.user.name.present? %>
+      <%= comment.user.name %>
+    <% else %>
+      <%= comment.user.email %>
+    <% end %>
+    &nbsp;
+    <strong>投稿日:</strong>
+    <%= l comment.created_at %>
+    &nbsp;
+    <strong><%= Comment.human_attribute_name(:content) %>:</strong>
+    <%= comment.content %>
   </p>
 <% end %>
 
