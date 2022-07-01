@@ -1,5 +1,4 @@
 class ReportsController < ApplicationController
-  before_action :set_report, only: %i[ show ]
   before_action :correct_user, only: %i[ edit update destroy ]
 
   # GET /reports or /reports.json
@@ -9,6 +8,7 @@ class ReportsController < ApplicationController
 
   # GET /reports/1 or /reports/1.json
   def show
+    @report = Report.includes(comments: :user).find(params[:id])
   end
 
   # GET /reports/new
@@ -47,11 +47,6 @@ class ReportsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_report
-      @report = Report.find(params[:id])
-    end
-
     # Only allow a list of trusted parameters through.
     def report_params
       params.require(:report).permit(:title, :content)
