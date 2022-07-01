@@ -1,4 +1,8 @@
 <h2><%= Comment.model_name.human %></h2>
+<% if commentable.comments.empty? %>
+  <p><%= t('comments.index.no_comments') %></p>
+<% end %>
+
 <% commentable.comments.each do |comment| %>
   <p>
     <strong><%= User.human_attribute_name(:name) %>:</strong>

@@ -8,6 +8,8 @@ ja:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
   comments:
+    index:
+      no_comments: コメントはありません
     create:
       submit_comment: 投稿
   date:
