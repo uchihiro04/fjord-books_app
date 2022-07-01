@@ -1,4 +1,4 @@
-<h2>コメント一覧</h2>
+<h2><%= Comment.model_name.human %></h2>
 <% commentable.comments.each do |comment| %>
   <p>
     <strong><%= User.human_attribute_name(:name) %>:</strong>
@@ -8,7 +8,7 @@
       <%= comment.user.email %>
     <% end %>
     &nbsp;
-    <strong>投稿日:</strong>
+    <strong><%= Comment.human_attribute_name(:created_at) %>:</strong>
     <%= l comment.created_at %>
     &nbsp;
     <strong><%= Comment.human_attribute_name(:content) %>:</strong>
@@ -35,7 +35,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit 'コメント' %>
+    <%= form.submit t('comments.create.submit_comment') %>
   </div>
 <% end %>
 
