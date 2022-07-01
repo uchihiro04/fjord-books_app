@@ -9,6 +9,7 @@ class Reports::CommentsController <  CommentsController
   end
 
   def set_render_template
-    @render_template = 'report/show'
+    @render_template = 'reports/show'
+    @report = Report.find(params[:report_id])
   end
 end

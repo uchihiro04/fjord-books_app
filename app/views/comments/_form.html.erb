@@ -17,12 +17,12 @@
 <% end %>
 
 <%= form_with(model: [commentable, Comment.new]) do |form| %>
-  <% if commentable.errors.any? %>
+  <% if @comment.present? %>
     <div id="error_explanation">
-      <h2><%= t'errors.template.header', model: commentable.model_name.human, count: commentable.errors.count %></h2>
+      <h2><%= t'errors.template.header', model: @comment.model_name.human, count: @comment.errors.count %></h2>
 
       <ul>
-        <% commentable.errors.each do |error| %>
+        <% @comment.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>

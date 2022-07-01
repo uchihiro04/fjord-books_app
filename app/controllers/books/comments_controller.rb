@@ -10,5 +10,6 @@ class Books::CommentsController <  CommentsController
 
   def set_render_template
     @render_template = 'books/show'
+    @book = Book.find(params[:book_id])
   end
 end
