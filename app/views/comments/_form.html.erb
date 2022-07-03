@@ -17,6 +17,10 @@
     &nbsp;
     <strong><%= Comment.human_attribute_name(:content) %>:</strong>
     <%= comment.content %>
+    &nbsp;
+    <% if current_user.id == comment.user_id %>
+      <%= link_to t('views.common.destroy'), [commentable, comment], method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
+    <% end %>
   </p>
 <% end %>
 

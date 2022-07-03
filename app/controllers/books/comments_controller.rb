@@ -1,6 +1,8 @@
 class Books::CommentsController <  CommentsController
-  before_action :set_commentable, only: %i[create]
-  before_action :set_render_template, only: %i[create]
+  include Recognizable
+  before_action :set_commentable, only: %i[create destroy]
+  before_action :set_render_template, only: %i[create destroy]
+  before_action :correct_user, only: %i[destroy]
 
   private
 
