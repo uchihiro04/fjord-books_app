@@ -1,30 +1,4 @@
-<h2><%= Comment.model_name.human %></h2>
-<% if commentable.comments.empty? %>
-  <p><%= t('comments.index.no_comments') %></p>
-<% end %>
-
-<% commentable.comments.each do |comment| %>
-  <p>
-    <strong><%= User.human_attribute_name(:name) %>:</strong>
-    <% if comment.user.name.present? %>
-      <%= comment.user.name %>
-    <% else %>
-      <%= comment.user.email %>
-    <% end %>
-    &nbsp;
-    <strong><%= Comment.human_attribute_name(:created_at) %>:</strong>
-    <%= l comment.created_at %>
-    &nbsp;
-    <strong><%= Comment.human_attribute_name(:content) %>:</strong>
-    <%= comment.content %>
-    &nbsp;
-    <% if current_user.id == comment.user_id %>
-      <%= link_to t('views.common.destroy'), [commentable, comment], method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
-    <% end %>
-  </p>
-<% end %>
-
-<%= form_with(model: [commentable, Comment.new]) do |form| %>
+<%= form_with(model: [commentable, Comment.new], local: true) do |form| %>
   <% if @comment.present? %>
     <div id="error_explanation">
       <h2><%= t'errors.template.header', model: @comment.model_name.human, count: @comment.errors.count %></h2>
@@ -43,7 +17,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit t('comments.create.submit_comment') %>
+    <%= form.submit %>
   </div>
 <% end %>
-

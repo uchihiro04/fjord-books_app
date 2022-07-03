@@ -17,6 +17,8 @@
 
 <%= link_to t('views.common.edit'), edit_report_path(@report) %>
 
+<%= render partial: 'comments/comments_index', locals: { commentable: @report } %>
+
 <%= render partial: 'comments/form', locals: { commentable: @report } %>
 
 <%= link_to t('views.common.back'), reports_path %>
