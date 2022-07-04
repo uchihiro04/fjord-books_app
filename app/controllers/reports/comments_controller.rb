@@ -1,8 +1,7 @@
 class Reports::CommentsController <  CommentsController
   include Recognizable
-  before_action :set_commentable, only: %i[create destroy]
-  before_action :set_render_template, only: %i[create destroy]
-  before_action :correct_user, only: %i[destroy]
+  before_action :set_commentable, only: %i[create destroy update]
+  before_action :set_render_template, only: %i[create]
 
   private
 

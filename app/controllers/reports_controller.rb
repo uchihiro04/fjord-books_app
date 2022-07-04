@@ -9,6 +9,7 @@ class ReportsController < ApplicationController
   # GET /reports/1
   def show
     @report = Report.includes(comments: :user).find(params[:id])
+    @comment = Comment.new 
   end
 
   # GET /reports/new

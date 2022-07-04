@@ -25,6 +25,6 @@
 
 <%= render partial: 'comments/comments_index', locals: { commentable: @book } %>
 
-<%= render partial: 'comments/form', locals: { commentable: @book } %>
+<%= render partial: 'comments/form', locals: { commentable: @book, comment: @comment } %>
 
 <%= link_to t('views.common.back'), books_path %>

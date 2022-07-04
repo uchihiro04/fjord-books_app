@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+  include Recognizable
+  before_action :correct_user, only: %i[destroy edit update]
+
   # POST /comments
   def create
     @comment = @commentable.comments.build(comment_params)
@@ -11,8 +14,17 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update
+    if @comment.update(comment_params)
+      redirect_to @commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
+    else
+      render :edit
+    end
+  end
+
   def destroy
-    @comment = @commentable.comments.find_by(id: params[:id])
     @comment.destroy!
     redirect_to @commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
   end
