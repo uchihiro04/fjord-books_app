@@ -1,8 +1,6 @@
-class Books::CommentsController <  CommentsController
-  include Recognizable
-  before_action :set_commentable, only: %i[create destroy edit update]
-  before_action :set_render_template, only: %i[create]
+# frozen_string_literal: true
 
+class Books::CommentsController < CommentsController
   private
 
   def set_commentable

@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
-  include Recognizable
+  before_action :set_commentable, only: %i[create destroy edit update]
+  before_action :set_render_template, only: %i[create]
   before_action :correct_user, only: %i[destroy edit update]
 
   # POST /comments
@@ -30,8 +33,14 @@ class CommentsController < ApplicationController
   end
 
   private
+
   # Only allow a list of trusted parameters through.
   def comment_params
     params.require(:comment).permit(:content)
+  end
+
+  def correct_user
+    @comment = current_user.comments.find_by(id: params[:id])
+    redirect_to @commentable, alert: t('controllers.common.unauthorized_operations') if @comment.nil?
   end
 end
