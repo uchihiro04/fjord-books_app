@@ -7,8 +7,12 @@ class FollowsController < ApplicationController
   end
 
   def destroy
-      user = Follow.find(params[:id]).following
-      current_user.unfollow(params[:id])
+    follow = Follow.find_by(id: params[:id])
+    user = follow.following unless follow.nil?
+    if current_user.unfollow(params[:id])
       redirect_to user_path(user)
+    else
+      redirect_to users_path, alert: t('controllers.common.alert_fail')
+    end
   end
 end

@@ -235,6 +235,7 @@ ja:
       truncate: '...'
   controllers:
     common:
+      alert_fail: "処理に失敗しました。"
       notice_create: "%{name}が作成されました。"
       notice_update: "%{name}が更新されました。"
       notice_destroy: "%{name}が削除されました。"
