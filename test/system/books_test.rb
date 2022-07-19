@@ -7,8 +7,8 @@ class BooksTest < ApplicationSystemTestCase
     @book = books(:test_book)
 
     visit root_url
-    fill_in 'Eメール',  with: 'alice@example.com'
-    fill_in 'パスワード',  with: 'password'
+    fill_in 'Eメール', with: 'alice@example.com'
+    fill_in 'パスワード', with: 'password'
     click_button 'ログイン'
   end
 
@@ -37,10 +37,12 @@ class BooksTest < ApplicationSystemTestCase
     click_on '編集', match: :prefer_exact
 
     fill_in 'タイトル', with: 'Rubyテスト入門 第2版'
-    fill_in 'メモ', with: 'テスト本の第2版です'
+    fill_in 'メモ', with: 'テスト本の第2版です。'
     click_on '更新する'
 
     assert_text '本が更新されました。'
+    assert_text 'Rubyテスト入門 第2版'
+    assert_text 'テスト本の第2版です。'
   end
 
   test 'destroying a Book' do
