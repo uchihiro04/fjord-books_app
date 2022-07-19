@@ -1,0 +1,24 @@
+<h1><%= t('views.common.title_show', name: Report.model_name.human) %></h1>
+
+<p>
+  <strong><%= Report.human_attribute_name(:title) %>:</strong>
+  <%= @report.title %>
+</p>
+
+<p>
+  <strong><%= Report.human_attribute_name(:content) %>:</strong>
+  <%= @report.content %>
+</p>
+
+<p>
+  <strong><%= Report.human_attribute_name(:created_at) %>:</strong>
+  <%= l @report.created_at %>
+</p>
+
+<%= link_to t('views.common.edit'), edit_report_path(@report) %>
+
+<%= render partial: 'comments/comments_index', locals: { commentable: @report } %>
+
+<%= render partial: 'comments/form', locals: { commentable: @report, comment: @comment } %>
+
+<%= link_to t('views.common.back'), reports_path %>

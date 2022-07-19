@@ -7,6 +7,11 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+  comments:
+    index:
+      no_comments: コメントはありません
+    create:
+      submit_comment: 投稿
   date:
     abbr_day_names:
     - 日
@@ -201,7 +206,7 @@ ja:
   time:
     am: 午前
     formats:
-      default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      default: "%Y年%m月%d日(%a) %H時%M分%S秒"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
@@ -245,6 +250,7 @@ ja:
       notice_create: "%{name}が作成されました。"
       notice_update: "%{name}が更新されました。"
       notice_destroy: "%{name}が削除されました。"
+      unauthorized_operations: "投稿したユーザーのみ可能な操作です。"
   relationships:
     create:
       notice: "フォローしました。"
