@@ -17,7 +17,7 @@ class BooksTest < ApplicationSystemTestCase
     assert_selector 'h1', text: '本'
   end
 
-  test 'creating a Book' do
+  test 'creating a book' do
     visit books_url
     click_on '新規作成'
 
@@ -32,7 +32,7 @@ class BooksTest < ApplicationSystemTestCase
     assert_text '夏目漱石'
   end
 
-  test 'updating a Book' do
+  test 'updating a book' do
     visit books_url
     click_on '編集', match: :prefer_exact
 
@@ -45,7 +45,7 @@ class BooksTest < ApplicationSystemTestCase
     assert_text 'テスト本の第2版です。'
   end
 
-  test 'destroying a Book' do
+  test 'destroying a book' do
     visit books_url
     page.accept_confirm do
       click_on '削除'
