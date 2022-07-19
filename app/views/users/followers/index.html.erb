@@ -1,0 +1,10 @@
+<h1><%= t('views.follow.followers_list') %></h1>
+
+<% if @user.followers.empty? %>
+  <p><%= t('views.follow.no_followers') %></p>
+<% else %>
+  <%= render 'users/users', users: @users %>
+<% end %>
+
+<%= paginate @users %>
+<%= link_to t('views.common.back'), user_path(@user) %>

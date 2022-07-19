@@ -1,4 +1,30 @@
 <h1><%= t('views.common.title_show', name: User.model_name.human) %></h1>
+<p>
+  <% unless current_user == @user %>
+    <% if current_user.following?(@user) %>
+      <%= form_with(model: current_user.active_follows.find_by(following_id: @user.id), method: :delete, local: true) do |f| %>
+        <%= f.submit t('views.follow.unfollow') %>
+      <% end %>
+    <% else %>
+      <%= form_with(model: current_user.active_follows.build, local: true) do |f| %>
+        <%= hidden_field_tag :following_id, @user.id %>
+        <%= f.submit t('views.follow.follow') %>
+      <% end %>
+    <% end %>
+  <% end %>
+</p>
+
+<p>
+  <a href="<%= user_followings_path(@user) %>">
+    <%= @user.followings.count %>
+    <%= t('views.follow.followings') %>
+  </a>
+  &nbsp;
+  <a href="<%= user_followers_path(@user) %>">
+    <%= @user.followers.count %>
+    <%= t('views.follow.followers') %>
+  </a>
+</p>
 
 <p>
   <strong><%= User.human_attribute_name(:email) %>:</strong>
