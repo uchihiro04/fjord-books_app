@@ -14,7 +14,7 @@ class ReportTest < ActiveSupport::TestCase
     assert_not report.editable?(bob)
   end
 
-  test 'generate_date' do
+  test 'change to date class' do
     travel_to Time.zone.local(2022, 7, 1, 12, 0, 0) do
       report = Report.create(user_id: @alice.id, title: '初日報', content: '初日報です')
       assert_equal 'Fri, 01 Jul 2022'.to_date, report.created_on
