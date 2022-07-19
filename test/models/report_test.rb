@@ -9,7 +9,7 @@ class ReportTest < ActiveSupport::TestCase
 
   test 'determine if editing is allowed' do
     bob = users(:bob)
-    report = reports(:report_one)
+    report = reports(:alice_report)
     assert report.editable?(@alice)
     assert_not report.editable?(bob)
   end
