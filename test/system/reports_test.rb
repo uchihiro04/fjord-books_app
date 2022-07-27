@@ -50,6 +50,5 @@ class ReportsTest < ApplicationSystemTestCase
 
     assert_text '日報が削除されました。'
     assert_no_text 'テストです'
-    
   end
 end
