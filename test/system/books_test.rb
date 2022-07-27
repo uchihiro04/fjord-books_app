@@ -47,10 +47,15 @@ class BooksTest < ApplicationSystemTestCase
 
   test 'destroying a book' do
     visit books_url
+    assert_text 'Rubyテスト入門'
+    assert_text 'テスト本です'
+
     page.accept_confirm do
       click_on '削除'
     end
 
     assert_text '本が削除されました。'
+    assert_no_text 'Rubyテスト入門'
+    assert_no_text 'テスト本です'
   end
 end
